@@ -11,6 +11,9 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       initialRoute: 'home',
       routes: {'home': (_) => HomeScreen(), 'details': (_) => DetailsScreen()},
+      theme: ThemeData.light().copyWith(
+        appBarTheme: AppBarTheme(color: Colors.indigo),
+      ),
     );
   }
 }
