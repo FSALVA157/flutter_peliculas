@@ -6,8 +6,7 @@ class MovieSlider extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.red,
-      height: 250,
+      height: 260,
       width: double.infinity,
       child: Column(
         children: [
@@ -18,7 +17,7 @@ class MovieSlider extends StatelessWidget {
               style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
             ),
           ),
-          _MoviePoster(),
+          _MoviePoster()
         ],
       ),
     );
@@ -36,10 +35,30 @@ class _MoviePoster extends StatelessWidget {
           itemCount: 20,
           itemBuilder: (BuildContext context, int indice) {
             return Container(
-              color: Colors.green,
               width: 130.0,
               height: 190.0,
-              margin: EdgeInsets.all(10.0),
+              margin: EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
+              child: Column(
+                children: [
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.pushNamed(context, 'details');
+                    },
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(20.0),
+                      child: FadeInImage(
+                          placeholder: AssetImage('assets/no-image.jpg'),
+                          image: NetworkImage(
+                              'https://via.placeholder.com/300x400')),
+                    ),
+                  ),
+                  Text(
+                    'Starwars: el regreso del Jedi y el origen de las tribus primigeneas y creadores del multiverso',
+                    maxLines: 2,
+                    overflow: TextOverflow.ellipsis,
+                  )
+                ],
+              ),
             );
           }),
     );
