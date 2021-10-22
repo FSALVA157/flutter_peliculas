@@ -17,7 +17,8 @@ class CardSwiper extends StatelessWidget {
         layout: SwiperLayout.STACK,
         itemBuilder: (_, int indice) {
           return GestureDetector(
-            onTap: () => Navigator.pushNamed(context, 'details'),
+            onTap: () => Navigator.pushNamed(context, 'details',
+                arguments: 'Mensaje desde Card Swipper'),
             child: ClipRRect(
               borderRadius: BorderRadius.circular(20.0),
               child: FadeInImage(

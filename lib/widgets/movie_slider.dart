@@ -42,7 +42,8 @@ class _MoviePoster extends StatelessWidget {
                 children: [
                   GestureDetector(
                     onTap: () {
-                      Navigator.pushNamed(context, 'details');
+                      Navigator.pushNamed(context, 'details',
+                          arguments: 'mensaje desde Movie Slider');
                     },
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(20.0),
