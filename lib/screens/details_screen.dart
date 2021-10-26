@@ -76,12 +76,22 @@ class _PosterYTitulo extends StatelessWidget {
                   //style: Theme.of(context).textTheme.headline5,
                 ),
                 Row(
-                  children: [
+                  children: const [
                     Icon(
                       Icons.star_border_outlined,
                       color: Colors.grey,
                       size: 20.0,
-                    )
+                    ),
+                    SizedBox(
+                      width: 10.0,
+                    ),
+                    Text(
+                      'Movie.vote.average',
+                      style: TextStyle(color: Colors.white, fontSize: 12),
+                      overflow: TextOverflow.ellipsis,
+                      maxLines: 1,
+                      //style: Theme.of(context).textTheme.headline5,
+                    ),
                   ],
                 )
               ],
