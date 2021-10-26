@@ -83,14 +83,16 @@ class _PosterYTitulo extends StatelessWidget {
                       size: 20.0,
                     ),
                     SizedBox(
-                      width: 10.0,
+                      width: 5.0,
                     ),
-                    Text(
-                      'Movie.vote.average',
-                      style: TextStyle(color: Colors.white, fontSize: 12),
-                      overflow: TextOverflow.ellipsis,
-                      maxLines: 1,
-                      //style: Theme.of(context).textTheme.headline5,
+                    Expanded(
+                      child: Text(
+                        'Movie.vote.average1313131313',
+                        style: TextStyle(color: Colors.white, fontSize: 12),
+                        overflow: TextOverflow.ellipsis,
+                        maxLines: 2,
+                        //style: Theme.of(context).textTheme.headline5,
+                      ),
                     ),
                   ],
                 )
