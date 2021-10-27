@@ -12,8 +12,10 @@ class MyApp extends StatelessWidget {
       initialRoute: 'home',
       routes: {'home': (_) => HomeScreen(), 'details': (_) => DetailsScreen()},
       theme: ThemeData.light().copyWith(
-        appBarTheme: AppBarTheme(color: Colors.indigo),
-      ),
+          appBarTheme: AppBarTheme(color: Colors.indigo),
+          textTheme: TextTheme(
+              caption: TextStyle(color: Colors.white),
+              bodyText1: TextStyle(color: Colors.white, fontSize: 10.0))),
     );
   }
 }

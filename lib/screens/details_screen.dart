@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:peliculas/widgets/widgets.dart';
 
 class DetailsScreen extends StatelessWidget {
   const DetailsScreen({Key? key}) : super(key: key);
@@ -10,7 +11,9 @@ class DetailsScreen extends StatelessWidget {
     return CustomScrollView(
       slivers: [
         _SliverAppBar(),
-        SliverList(delegate: SliverChildListDelegate([_PosterYTitulo()]))
+        SliverList(
+            delegate: SliverChildListDelegate(
+                [_PosterYTitulo(), _Overview(), _Overview(), CastingCards()]))
       ],
     );
   }
@@ -31,7 +34,7 @@ class _SliverAppBar extends StatelessWidget {
           title: Text('movie.title'),
           background: FadeInImage(
               placeholder: AssetImage('assets/loading.gif'),
-              image: AssetImage('assets/no-image.jpg'),
+              image: NetworkImage('https://via.placeholder.com/500x300'),
               fit: BoxFit.cover),
         ));
   }
@@ -87,7 +90,7 @@ class _PosterYTitulo extends StatelessWidget {
                     ),
                     Expanded(
                       child: Text(
-                        'Movie.vote.average1313131313',
+                        'Movie.vote.average',
                         style: TextStyle(color: Colors.white, fontSize: 12),
                         overflow: TextOverflow.ellipsis,
                         maxLines: 2,
@@ -100,6 +103,22 @@ class _PosterYTitulo extends StatelessWidget {
             ),
           )
         ],
+      ),
+    );
+  }
+}
+
+class _Overview extends StatelessWidget {
+  const _Overview({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: EdgeInsets.symmetric(horizontal: 20.0, vertical: 20.0),
+      child: Text(
+        'Velit qui cillum elit sunt. Sit veniam tempor non irure esse pariatur elit dolore et voluptate ipsum non ipsum velit. Ea cupidatat nulla voluptate in aliqua. Tempor voluptate culpa in sit culpa laborum ullamco labore nulla eiusmod et. Pariatur velit magna minim deserunt non laboris amet quis consectetur deserunt voluptate ullamco. Ad cillum id fugiat do eu ex excepteur culpa officia. Id aliquip sint labore consectetur culpa.',
+        style: Theme.of(context).textTheme.caption,
+        textAlign: TextAlign.justify,
       ),
     );
   }
