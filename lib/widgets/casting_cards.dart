@@ -28,18 +28,18 @@ class CardCast extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.all(1.0),
+      margin: const EdgeInsets.all(1.0),
       height: 110.0,
       width: 90.0,
       child: Column(
         children: [
           ClipRRect(
             borderRadius: BorderRadius.circular(20.0),
-            child: FadeInImage(
+            child: const FadeInImage(
                 placeholder: AssetImage('assets/no-image.jpg'),
                 image: NetworkImage('https://via.placeholder.com/80x100')),
           ),
-          SizedBox(
+          const SizedBox(
             height: 5.0,
           ),
           Text(
