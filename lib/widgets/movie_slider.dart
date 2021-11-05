@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:peliculas/models/models.dart';
 
 class MovieSlider extends StatelessWidget {
-  const MovieSlider({Key? key}) : super(key: key);
+  final List<Movie> movies;
+
+  const MovieSlider({Key? key, required this.movies}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +20,9 @@ class MovieSlider extends StatelessWidget {
               style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
             ),
           ),
-          _MoviePoster()
+          _MoviePoster(
+            peliculas: this.movies,
+          )
         ],
       ),
     );
@@ -25,14 +30,16 @@ class MovieSlider extends StatelessWidget {
 }
 
 class _MoviePoster extends StatelessWidget {
-  const _MoviePoster({Key? key}) : super(key: key);
+  final List<Movie> peliculas;
+
+  const _MoviePoster({Key? key, required this.peliculas}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Expanded(
       child: ListView.builder(
           scrollDirection: Axis.horizontal,
-          itemCount: 20,
+          itemCount: peliculas.length,
           itemBuilder: (BuildContext context, int indice) {
             return Container(
               width: 130.0,
@@ -64,4 +71,10 @@ class _MoviePoster extends StatelessWidget {
           }),
     );
   }
+
+  // @override
+  // void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+  //   super.debugFillProperties(properties);
+  //   properties.add(IterableProperty<Movie>('movies', movies));
+  // }
 }

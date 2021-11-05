@@ -11,10 +11,11 @@ class MoviesProvider extends ChangeNotifier {
   var _page = "1";
 
   List<Movie> onDisplayMovies = [];
+  List<Movie> popularMovies = [];
 
   MoviesProvider() {
-    print('Movies Provider Inicializado');
     this._getOnDisplayMovies();
+    this._getPopularMovies();
   }
 
   _getOnDisplayMovies() async {
@@ -28,6 +29,20 @@ class MoviesProvider extends ChangeNotifier {
     NowPlayingResponse nowPlayingResponse =
         NowPlayingResponse.fromJson(response.body);
     this.onDisplayMovies = nowPlayingResponse.results;
+    notifyListeners();
+  }
+
+  _getPopularMovies() async {
+    var url = Uri.https(this._baseUrl, 'api.themoviedb.org/3/movie/popular', {
+      "api_key": this._apiKey,
+      "language": this._language,
+      "page": this._page
+    });
+
+    final response = await http.get(url);
+    PopularMoviesResponse popularMoviesResponse =
+        PopularMoviesResponse.fromJson(response.body);
+    this.popularMovies = [...popularMovies, ...popularMoviesResponse.results];
     notifyListeners();
   }
 }

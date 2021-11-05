@@ -20,7 +20,6 @@ class CardSwiper extends StatelessWidget {
         layout: SwiperLayout.STACK,
         itemBuilder: (_, int indice) {
           final movie = movies[indice];
-          print(movie.imageUrl);
           return GestureDetector(
             onTap: () => Navigator.pushNamed(context, 'details',
                 arguments: 'Mensaje desde Card Swipper'),
